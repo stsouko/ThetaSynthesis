@@ -21,7 +21,7 @@ from CGRtools import Reactor
 from collections import deque
 from io import TextIOWrapper
 from pkg_resources import resource_stream
-from typing import Tuple, TYPE_CHECKING, Set, FrozenSet
+from typing import TYPE_CHECKING, Set, FrozenSet
 from .rules import rules
 from ..abc import SynthonABC
 
@@ -65,8 +65,9 @@ class RolloutSynthon(SynthonABC):
                 self._float = -.5
                 return self._float
             seen.add(curr)
-            result = next(x for _, r in self.__reactors__ for x in r([curr])).products
-            if not result:
+            try:
+                result = next(x for _, r in self.__reactors__ for x in r([curr])).products
+            except StopIteration:
                 self._float = -1.
                 return self._float
             if seen.isdisjoint(result):

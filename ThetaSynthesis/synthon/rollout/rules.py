@@ -18,6 +18,7 @@
 #  along with this program; if not, see <https://www.gnu.org/licenses/>.
 #
 from CGRtools import QueryContainer, ReactionContainer
+from CGRtools.containers.bonds import QueryBond
 from CGRtools.periodictable import ListElement
 
 
