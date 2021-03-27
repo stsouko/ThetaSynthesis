@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#  Copyright 2020-2021 Alexander Sizov <murkyrussian@gmail.com>
+#  Copyright 2021 Alexander Sizov <murkyrussian@gmail.com>
 #  Copyright 2021 Ramil Nugmanov <nougmanoff@protonmail.com>
 #  This file is part of ThetaSynthesis.
 #
@@ -17,5 +17,11 @@
 #  You should have received a copy of the GNU Lesser General Public License
 #  along with this program; if not, see <https://www.gnu.org/licenses/>.
 #
-from .scroll import *
-from .tree import *
+from .transformations import rules as t_rules
+from .decompositions import rules as d_rules
+
+
+rules = t_rules + d_rules
+
+
+__all__ = ['rules']
